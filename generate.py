@@ -78,7 +78,7 @@ def _download_file(key, source):
 def main():
 
     iso_files = _load_iso_files('data.json')
-    isos_list = []
+    all = []
 
     for key in iso_files.keys():
         iso_file = iso_files[key]
@@ -88,6 +88,9 @@ def main():
         translations = _read_po_file(filename)
 
         _save_file(f'output/{key}.json', json.dumps(translations))
+        all.append(key)
+
+    _save_file(f'output/index.json', json.dumps({"files": all}))
 
 if __name__ == "__main__":
     main()
