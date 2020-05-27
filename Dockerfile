@@ -15,7 +15,7 @@ RUN python generate.py
 
 RUN ls output
 
-FROM softcatala/sc-static-file-server:1.0
+FROM softcatala/sc-static-file-server:1.2
 
 COPY --from=builder /app/output/* /static/
 
