@@ -25,6 +25,12 @@ import re
 import requests
 
 
+TEXTS = {
+    "source": "Anglès",
+    "target": "Català",
+    "code": "codi"
+}
+
 class Translation(dict):
 
     def __init__(self, source, target, code):
@@ -49,7 +55,10 @@ def _read_po_file(filename):
         translation = Translation(entry.msgid, entry.msgstr, code)
         translations.append(translation)
 
-    return { "translations": translations }
+    return {
+        "text": TEXTS,
+        "data": translations
+    }
 
 def _save_file(filename, content):
     mode = 'w' if isinstance(content, str) else 'wb'
