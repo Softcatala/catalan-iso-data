@@ -3,9 +3,9 @@
         "source": "https://raw.githubusercontent.com/Softcatala/catalan-pology-rules/master/isos/iso_639-3.59.ca.po"
     },
     "iso-3166-3": {
-        "source": "https://raw.githubusercontent.com/Softcatala/catalan-pology-rules/master/isos/iso_3166-3.57.ca.po"
+        "source": "https://hosted.weblate.org/download/iso-codes/iso-3166-3/ca/"
     },
    "iso-4217-3": {
-        "source": "https://raw.githubusercontent.com/Softcatala/catalan-pology-rules/master/isos/iso_4217-3.76.ca.po"
+        "source": "https://hosted.weblate.org/download/iso-codes/iso-4217/ca/"
     }
 }
