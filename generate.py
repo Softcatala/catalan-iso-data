@@ -29,7 +29,7 @@ EXTRA_639_1_DATA = "https://raw.githubusercontent.com/haliaeetus/iso-639/master/
 TEXTS = {
     "source": "Anglès",
     "target": "Català",
-    "code": "codi"
+    "code": "Codi"
 }
 
 class Translation(dict):
