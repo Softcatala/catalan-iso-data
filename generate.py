@@ -76,9 +76,6 @@ def _load_iso_files(filename):
 
     return data
 
-def _download_po_file(key, source):
-    return _download_file(f'{key}.po', source)
-
 def _download_file(filename, source):
     r = requests.get(source)
     
@@ -112,8 +109,7 @@ def main():
         iso_file = iso_files[key]
         source = iso_file['source']
 
-        filename = _download_po_file(key, source)
-        translations = _read_po_file(filename)
+        translations = _read_po_file(source)
         _enrich(key, translations)
 
         _save_file(f'output/{key}.json', json.dumps(translations, indent=4))
