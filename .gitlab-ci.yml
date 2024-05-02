@@ -1,9 +1,9 @@
 include:
-  - project: 'docker/catalan-iso-data'
+  - project: 'docker/process-webhooks'
     file: '/gitlab/deploy.yml'
 
 variables:
-  PROJECT_TO_BE_DEPLOYED: 'docker/my-project-name'
+  PROJECT_TO_BE_DEPLOYED: 'docker/catalan-iso-data'
 
 stages:
   - build
