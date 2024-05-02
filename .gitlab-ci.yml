@@ -1,3 +1,10 @@
+include:
+  - project: 'docker/catalan-iso-data'
+    file: '/gitlab/deploy.yml'
+
+variables:
+  PROJECT_TO_BE_DEPLOYED: 'docker/my-project-name'
+
 stages:
   - build
 
