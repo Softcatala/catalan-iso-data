@@ -96,7 +96,7 @@ def main():
         filename = _download_file(key, source)
         translations = _read_po_file(filename)
 
-        _save_file(f'output/{key}.json', json.dumps(translations))
+        _save_file(f'output/{key}.json', json.dumps(translations, indent=4))
         all.append(key)
 
     _save_file(f'output/index.json', json.dumps({"files": all}))
