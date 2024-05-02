@@ -1,4 +1,4 @@
-FROM python:3.8.3-slim as builder
+FROM python:3.11-slim as builder
 
 RUN pip install pipenv
 
