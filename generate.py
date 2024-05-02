@@ -24,6 +24,7 @@ import json
 import re
 import requests
 
+EXTRA_639_1_DATA = "https://raw.githubusercontent.com/haliaeetus/iso-639/master/data/iso_639-2.json"
 
 TEXTS = {
     "source": "Anglès",
@@ -75,14 +76,32 @@ def _load_iso_files(filename):
 
     return data
 
-def _download_file(key, source):
+def _download_po_file(key, source):
+    return _download_file(f'{key}.po', source)
+
+def _download_file(filename, source):
     r = requests.get(source)
-    
-    filename = f'{key}.po'
     
     _save_file(filename, r.content)
     
     return filename
+
+def _add_639_1(translations):
+
+    _download_file("iso-639-1.json", EXTRA_639_1_DATA)
+    data = open("iso-639-1.json")
+    iso_639_1 = json.load(data)
+
+    for translation in translations['data']:
+        code = translation['code']
+        if code in iso_639_1 and "639-1" in iso_639_1[code]:
+            translation[code] = f'{code}, {iso_639_1[code]["639-1"]}'
+        print(translation)
+
+def _enrich(key, translations):
+    if key == "iso-639-3":
+        _add_639_1(translations)
+    
 
 def main():
 
@@ -93,8 +112,9 @@ def main():
         iso_file = iso_files[key]
         source = iso_file['source']
 
-        filename = _download_file(key, source)
+        filename = _download_po_file(key, source)
         translations = _read_po_file(filename)
+        _enrich(key, translations)
 
         _save_file(f'output/{key}.json', json.dumps(translations, indent=4))
         all.append(key)
