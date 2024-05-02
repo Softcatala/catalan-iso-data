@@ -1,11 +1,11 @@
 {
     "iso-639-3": {
-        "source": "https://hosted.weblate.org/download/iso-codes/iso-639-2/ca/"
+        "source": "iso-codes/iso-639-2.po"
     },
     "iso-3166-3": {
-        "source": "https://hosted.weblate.org/download/iso-codes/iso-3166-3/ca/"
+        "source": "iso-codes/iso-3166-3.po"
     },
    "iso-4217-3": {
-        "source": "https://hosted.weblate.org/download/iso-codes/iso-4217/ca/"
+        "source": "iso-codes/iso-4217.po"
     }
 }
