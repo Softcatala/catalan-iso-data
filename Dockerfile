@@ -6,7 +6,7 @@ WORKDIR "/app"
 
 COPY . /app/
 
-RUN pipenv lock --requirements > requirements.txt
+RUN pipenv requirements > requirements.txt
 
 RUN pip install -r requirements.txt
 
