@@ -13,7 +13,7 @@ RUN pip install -r requirements.txt
 RUN mkdir -p output
 RUN python generate.py
 
-RUN ls output
+RUN head -n30 output/iso-639-3.json
 
 FROM softcatala/sc-static-file-server:1.3
 
