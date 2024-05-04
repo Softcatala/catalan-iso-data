@@ -93,7 +93,6 @@ def _add_639_1(translations):
         code = translation['code']
         if code in iso_639_1 and "639-1" in iso_639_1[code]:
             translation[code] = f'{code}, {iso_639_1[code]["639-1"]}'
-        print(translation)
 
 def _enrich(key, translations):
     if key == "iso-639-3":
@@ -115,7 +114,7 @@ def main():
         _save_file(f'output/{key}.json', json.dumps(translations, indent=4))
         all.append(key)
 
-    _save_file(f'output/index.json', json.dumps({"files": all}))
+    _save_file('output/index.json', json.dumps({"files": all}))
 
 if __name__ == "__main__":
     main()
